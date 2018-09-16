@@ -30,7 +30,7 @@ test:
     - wasm-merge --help
     - wasm-metadce --help
     - asm2wasm --help
-    - wasm2asm --help
+    - wasm2js --help
     - wasm-emscripten-finalize --help
     - wasm-as --help
     - wasm-dis --help
