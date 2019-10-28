@@ -1,4 +1,4 @@
-{% set version = "1.38.29" %}
+{% set version = "1.38.48" %}
 
 package:
   name: binaryen
@@ -7,7 +7,7 @@ package:
 source:
   fn: binaryen-{{ version }}.tar.gz
   url: https://github.com/WebAssembly/binaryen/archive/{{ version }}.tar.gz
-  sha256: 2cc98dade872a78122b5c1410e82f9762e2735b8676d30bf2ede836002438936
+  sha256: 98a050b8348b4256dfd4fe8aab3810bd46f866ab52381405771d99d357fc877a
 
 build:
   number: 0
