@@ -1,4 +1,4 @@
-{% set version = "1.38.30" %}
+{% set version = "1.38.31" %}
 
 package:
   name: binaryen
@@ -7,7 +7,7 @@ package:
 source:
   fn: binaryen-{{ version }}.tar.gz
   url: https://github.com/WebAssembly/binaryen/archive/{{ version }}.tar.gz
-  sha256: bb55a9824d54c764d4352086959dfbcb70be31d697570364d8a4fb53601d432d
+  sha256: 5115c65d7ca4dcf688b91741c2767999cb8caebc82cd903a1f4078a7b2685de8
 
 build:
   number: 0
@@ -27,7 +27,6 @@ test:
   commands:
     - wasm-shell --help
     - wasm-opt --help
-    - wasm-merge --help
     - wasm-metadce --help
     - asm2wasm --help
     - wasm2js --help
