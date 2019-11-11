@@ -27,7 +27,6 @@ test:
   commands:
     - wasm-shell --help
     - wasm-opt --help
-    - wasm-merge --help
     - wasm-metadce --help
     - asm2wasm --help
     - wasm2js --help
