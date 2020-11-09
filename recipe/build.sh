@@ -9,13 +9,19 @@ then
 fi
 export EXTRA_CMAKE_ARGS
 
-mkdir "build_${CMAKE_CONFIG}"
+export CC=$BUILD_PREFIX/bin/clang
+export CXX=$BUILD_PREFIX/bin/clang++
+
+mkdir -p "build_${CMAKE_CONFIG}"
 pushd "build_${CMAKE_CONFIG}"
 cmake -G "Ninja" \
-    -DCMAKE_BUILD_TYPE:STRING="${CMAKE_CONFIG}" \
-    -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
-    -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON \
-    -DBUILD_SHARED_LIBS:BOOL=ON \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=$PREFIX \
+    -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DVERBOSE=ON \
+    ${CMAKE_ARGS} \
     ${EXTRA_CMAKE_ARGS} \
     "${SRC_DIR}"
 ninja

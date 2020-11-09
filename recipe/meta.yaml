@@ -1,13 +1,12 @@
-{% set version = "1.39.1" %}
+{% set version = "98" %}
 
 package:
   name: binaryen
   version: {{ version }}
 
 source:
-  fn: binaryen-{{ version }}.tar.gz
-  url: https://github.com/WebAssembly/binaryen/archive/{{ version }}.tar.gz
-  sha256: 4852a676c383efffa368e58f2abf3108fcf02f0e8b6cd3923b0cdc35bc0ee8c9
+  url: https://github.com/WebAssembly/binaryen/archive/version_{{ version }}.tar.gz
+  sha256: 9f805db6735869ab52cde7c0404879c90cf386888c0f587e944737550171c1c4
 
 build:
   number: 1
@@ -15,13 +14,13 @@ build:
 
 requirements:
   build:
-    - {{ compiler("c") }}
-    - {{ compiler("cxx") }}
+    # - {{ compiler("c") }}
+    # - {{ compiler("cxx") }}
+    - clangxx
     - cmake
     - ninja
     - nodejs
-    - python 2.7
-  host:
+    - python
 
 test:
   commands:
