@@ -8,6 +8,8 @@ source:
   url: https://github.com/WebAssembly/binaryen/archive/version_{{ version }}.tar.gz
   sha256: 9f805db6735869ab52cde7c0404879c90cf386888c0f587e944737550171c1c4
   patches:
+    # this fixes an issue where "some toolchains it is necessary to #define __STDC_FORMAT_MACROS before using macros like PRIxPTR"
+    # cf: https://github.com/tensorflow/tensorflow/issues/12998#issuecomment-329179887
     - gcc_stdmacro.patch  # [linux]
 
 build:
@@ -36,7 +38,7 @@ test:
 
 about:
   home: https://github.com/WebAssembly/binaryen
-  license: Apache 2.0
+  license: Apache-2.0
   license_file: LICENSE
   summary: Compiler infrastructure and toolchain library for WebAssembly, in C++
 
