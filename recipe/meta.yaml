@@ -7,16 +7,16 @@ package:
 source:
   url: https://github.com/WebAssembly/binaryen/archive/version_{{ version }}.tar.gz
   sha256: 9f805db6735869ab52cde7c0404879c90cf386888c0f587e944737550171c1c4
+  patches:
+    - gcc_stdmacro.patch  # [linux]
 
 build:
-  number: 1
-  skip: true  # [win and vc<14]
+  number: 0
 
 requirements:
   build:
-    # - {{ compiler("c") }}
-    # - {{ compiler("cxx") }}
-    - clangxx
+    - {{ compiler("c") }}
+    - {{ compiler("cxx") }}
     - cmake
     - ninja
     - nodejs
@@ -27,7 +27,6 @@ test:
     - wasm-shell --help
     - wasm-opt --help
     - wasm-metadce --help
-    - asm2wasm --help
     - wasm2js --help
     - wasm-emscripten-finalize --help
     - wasm-as --help
@@ -44,3 +43,4 @@ about:
 extra:
   recipe-maintainers:
     - jakirkham
+    - wolfv
