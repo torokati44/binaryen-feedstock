@@ -1,17 +1,19 @@
-{% set version = "1.39.1" %}
+{% set version = "98" %}
 
 package:
   name: binaryen
   version: {{ version }}
 
 source:
-  fn: binaryen-{{ version }}.tar.gz
-  url: https://github.com/WebAssembly/binaryen/archive/{{ version }}.tar.gz
-  sha256: 4852a676c383efffa368e58f2abf3108fcf02f0e8b6cd3923b0cdc35bc0ee8c9
+  url: https://github.com/WebAssembly/binaryen/archive/version_{{ version }}.tar.gz
+  sha256: 9f805db6735869ab52cde7c0404879c90cf386888c0f587e944737550171c1c4
+  patches:
+    # this fixes an issue where "some toolchains it is necessary to #define __STDC_FORMAT_MACROS before using macros like PRIxPTR"
+    # cf: https://github.com/tensorflow/tensorflow/issues/12998#issuecomment-329179887
+    - gcc_stdmacro.patch  # [linux]
 
 build:
-  number: 1
-  skip: true  # [win and vc<14]
+  number: 0
 
 requirements:
   build:
@@ -20,15 +22,13 @@ requirements:
     - cmake
     - ninja
     - nodejs
-    - python 2.7
-  host:
+    - python
 
 test:
   commands:
     - wasm-shell --help
     - wasm-opt --help
     - wasm-metadce --help
-    - asm2wasm --help
     - wasm2js --help
     - wasm-emscripten-finalize --help
     - wasm-as --help
@@ -38,10 +38,11 @@ test:
 
 about:
   home: https://github.com/WebAssembly/binaryen
-  license: Apache 2.0
+  license: Apache-2.0
   license_file: LICENSE
   summary: Compiler infrastructure and toolchain library for WebAssembly, in C++
 
 extra:
   recipe-maintainers:
     - jakirkham
+    - wolfv

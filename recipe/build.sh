@@ -11,13 +11,16 @@ export EXTRA_CMAKE_ARGS
 
 mkdir "build_${CMAKE_CONFIG}"
 pushd "build_${CMAKE_CONFIG}"
+
 cmake -G "Ninja" \
     -DCMAKE_BUILD_TYPE:STRING="${CMAKE_CONFIG}" \
     -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
     -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON \
     -DBUILD_SHARED_LIBS:BOOL=ON \
+    -DCMAKE_INSTALL_LIBDIR=lib \
     ${EXTRA_CMAKE_ARGS} \
     "${SRC_DIR}"
+
 ninja
 ninja install
 popd
