@@ -29,6 +29,11 @@ requirements:
     - ninja
     - nodejs
     - python
+  host:
+    - python
+  run:
+    - python
+
 
 test:
   commands:
