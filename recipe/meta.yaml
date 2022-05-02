@@ -17,6 +17,8 @@ source:
     # https://github.com/WebAssembly/binaryen/pull/4552
     - skip_gtest1.patch
     - skip_gtest2.patch
+    # Missing include
+    - missing-include.patch
 
 build:
   number: 0
