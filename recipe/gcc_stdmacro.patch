@@ -9,3 +9,4 @@ index 20fc2e9fb..f411d9e63 100644
 +# needed for gcc to compile the llvm sources included here
 +add_definitions(-D__STDC_FORMAT_MACROS)
  add_library(wasm OBJECT ${wasm_SOURCES})
++target_compile_features(wasm PRIVATE cxx_std_17)
