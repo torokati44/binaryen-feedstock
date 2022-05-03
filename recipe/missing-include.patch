@@ -1,0 +1,20 @@
+---
+ src/passes/ExtractFunction.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/passes/ExtractFunction.cpp b/src/passes/ExtractFunction.cpp
+index 0c0c1477e..0939ebe28 100644
+--- a/src/passes/ExtractFunction.cpp
++++ b/src/passes/ExtractFunction.cpp
+@@ -20,6 +20,8 @@
+ // This pass will run --remove-unused-module-elements automatically for you, in
+ // order to remove as many things as possible.
+
++#include <cctype>
++
+ #include "pass.h"
+ #include "wasm-builder.h"
+ #include "wasm.h"
+--
+2.35.1
+
