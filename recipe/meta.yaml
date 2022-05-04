@@ -11,15 +11,6 @@ source:
     # this fixes an issue where "some toolchains it is necessary to #define __STDC_FORMAT_MACROS before using macros like PRIxPTR"
     # cf: https://github.com/tensorflow/tensorflow/issues/12998#issuecomment-329179887
     - gcc_stdmacro.patch  # [linux]
-    # do not build google tests
-    # fixed upstream already
-    # https://github.com/WebAssembly/binaryen/pull/4536
-    # https://github.com/WebAssembly/binaryen/pull/4552
-    - skip_gtest1.patch
-    - skip_gtest2.patch
-    # Missing include
-    # https://github.com/WebAssembly/binaryen/pull/4627
-    - missing-include.patch
 
 build:
   number: 0
